@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>E-commerce</title>
+</head>
+<body>
+
+
+
+
+
+<table border="1" summary="Ejemplo de tabla simple.">
+<tr>
+
+<td>
+
+</td>
+
+<td>
+<form action="http://localhost:8080/buscar" method = "GET">
+<input type="text" name"busqueda"/><input type="button" name"buscar" value="buscar"/>
+</form>
+</td>
+
+<td>
+
+<form action = "Login" method = "POST">
+login:<input type="text" name"login"/>
+password:<input type="password" name"pass"/>
+<input type="button" name"ingresar" value="ingresar"/>
+</form>
+
+<!-- Si colocamos POST, hay que tener en cuenta que el Servlet no puede 
+	pedir un recurso, por ende no se puede hacer /register por ejemplo
+ -->
+<form action = "http://localhost:8080/register" method = "GET">
+<!--
+Nombre: <input type="text" name"firstname"/>
+Apellido:<input type="text" name"lastname"/>
+-->
+E-Mail:<input type="text" name"mail"/>
+Password:<input type="password" name "pass"/>
+<input type="button" name"registrar" value="Registrar"/>
+</form>
+
+<form action = "sucripcion" method = "POST">
+Suscripcion a ofertas semanales
+Mail: <input type="text" name"mail"/>
+<input type="button" name"suscripcion" value="Enviame"/>
+</form>
+</td>
+
+<td>
+<select name="Categorias" size="30">
+Categorias
+<option>Televisores</option>
+<option>Hardware</option>
+<option>Software</option>
+</select>
+
+</td>
+
+
+</tr>
+
+
+
+
+
+</body>
+</html>
+
