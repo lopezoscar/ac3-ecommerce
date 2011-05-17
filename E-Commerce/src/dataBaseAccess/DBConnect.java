@@ -38,7 +38,7 @@ public class DBConnect {
 	Statement statement = null;
 	ResultSet rs;
 	
-	@SuppressWarnings("finally")
+	//@SuppressWarnings("finally")
 	public Statement connect(){
 	try {
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -77,6 +77,7 @@ public class DBConnect {
 		}
 		
 		try {
+			rs = null;
 			rs = statement.executeQuery(select);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
