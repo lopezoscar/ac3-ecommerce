@@ -13,7 +13,6 @@ public class BrowserController {
 	public void buscarProducto(){
 		BrowserDB browserDB = new BrowserDB();
 		browserDB.buscar(busqueda);
-		String variableDePrueba = "Variable de Prueba";
 		
 	}
 
