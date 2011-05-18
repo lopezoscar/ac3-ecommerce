@@ -19,14 +19,14 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		
-		PrintWriter pw = resp.getWriter();
-		pw.println("Ok");
-		
-	}
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+//			throws ServletException, IOException {
+//		
+//		PrintWriter pw = resp.getWriter();
+//		pw.println("Ok");
+//		
+//	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

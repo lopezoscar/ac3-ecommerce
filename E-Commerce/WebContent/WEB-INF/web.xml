@@ -8,6 +8,8 @@
 <!-- COMENTARIO: Se deben agregar en el servlet-class el paquete.clase -->
 
 <web-app>
+
+
 <!-- 
 <servlet>
 		<servlet-name>TestServlet</servlet-name>
@@ -36,8 +38,9 @@
 		<url-pattern>/register</url-pattern>
 	</servlet-mapping>
 
- 	
-	
+ 	<welcome-file-list>
+ 		<welcome-file>index.html</welcome-file>
+ 	</welcome-file-list>
 	
 	
 </web-app>
