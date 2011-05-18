@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,15 @@ public class RegisterServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		PrintWriter pw = resp.getWriter();
+		pw.println("Ok");
+		
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
