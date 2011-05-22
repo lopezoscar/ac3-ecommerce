@@ -22,7 +22,8 @@ public class LoginDB implements DBQuery {
 	}
 	
 	public LoginVO getUser(){
-		ResultSet rs = DBConnect.getInstance().commandSelect(this);
+	
+		ResultSet rs = DBConnect.getInstance().commandSelect(getUserFromTable());
 		LoginVO loginVo = null;
 		try {
 			while(rs.next()){
@@ -56,5 +57,14 @@ public class LoginDB implements DBQuery {
 		// TODO Auto-generated method stub
 		return USERS;
 	}
+	
+	private String getUserFromTable(){
+		String query = "SELECT "+this.getColumna()+" FROM "+this.getTabla();
+		return query;
+	}
+	
+	
+	
+	
 
 }

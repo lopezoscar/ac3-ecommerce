@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.ResultSet;
+
 import dataBaseAccess.BrowserDB;
 
 public class BrowserController {
@@ -10,10 +12,11 @@ public class BrowserController {
 		this.busqueda = busqueda;
 	}
 	
-	public void buscarProducto(){
+	public ResultSet buscarProducto(){
 		BrowserDB browserDB = new BrowserDB();
-		browserDB.buscar(busqueda);
-		
+		ResultSet rs = browserDB.buscar(busqueda);
+
+		return rs;
 	}
 
 }

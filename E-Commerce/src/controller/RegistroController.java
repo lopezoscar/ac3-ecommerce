@@ -19,21 +19,25 @@ public class RegistroController {
 		
 	}
 
-	public void registrar(String mail,String pass) throws MailNotFoundException,PassNotFoundException{
+	public Boolean registrar(String mail,String pass) throws MailNotFoundException,PassNotFoundException{
+		boolean logueame = false;
 		if(mail == null){
 			new MailNotFoundException();
 		}
 		if(pass == null){
 			new PassNotFoundException();
 		}else{
-			String[] valores = {mail,pass};
 			/**
 			 * RegistroDB en su metodo registrar recibe los valores que insertara en la Base de Datos
 			 */
 			RegistroDB registroDB = new RegistroDB();
-			registroDB.registrar(valores);
+			Boolean registroOk = registroDB.registrar(mail,pass);
+			if(registroOk == true){
+				logueame = true;
+			}
 		}
 		
+		return logueame;
 		
 	}
 

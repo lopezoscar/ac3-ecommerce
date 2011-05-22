@@ -5,9 +5,6 @@ import dataBaseAccess.DBConnect;
 
 public class RegistroDB implements DBQuery {
 
-//	public static final String NOMBRE = "nombre";
-//
-//	public static final String APELLIDO = "apellido";
 
 	public static final String MAIL = "mail";
 	
@@ -21,21 +18,16 @@ public class RegistroDB implements DBQuery {
 	public RegistroDB(){
 	}
 	
-	public String registrar(String[] valores){
+	public Boolean registrar(String mail, String pass){
 		/**
 		 * Se accede a la base de datos mediante una UNICA CONEXION
 		 * Esta esta implementada mediante el patron de diseño SINGLETON
 		 * 
-		 * El paramatro this, se refiere a esta clase dado que al realizar 
-		 * la ejecucion del comando, el metodo commandInsert debe conocer
-		 * la Tabla y los campos al cual debe insertar los datos.
-		 * 
-		 * Valores es el array con los datos a insertar
-		 * en este caso son Mail y Pass
 		 */
-		DBConnect.getInstance().commandInsert(this, valores);
-		String fin = "Registro Exitoso";
-		return fin;
+		
+		DBConnect.getInstance().commandInsert(getUserFromTable(mail, pass));
+		Boolean registroOk = true;
+		return registroOk;
 	}
 
 	@Override
@@ -54,6 +46,17 @@ public class RegistroDB implements DBQuery {
 	public String getTabla() {
 		// TODO Auto-generated method stub
 		return USERS;
+	}
+	
+	/**
+	 * Se definen en esta clase todos los comandos que intervengan en el registro de usuarios.
+	 * @param mail a insertar
+	 * @param pass a insertar
+	 * @return
+	 */
+	private String getUserFromTable(String mail, String pass){
+		String query = "INSERT INTO "+this.getTabla()+"(mail,pass)" + " VALUES " +mail+pass;
+		return query;
 	}
 
 	

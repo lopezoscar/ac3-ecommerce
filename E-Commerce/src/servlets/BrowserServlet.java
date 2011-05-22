@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +27,18 @@ public class BrowserServlet extends HttpServlet {
 		String busqueda = request.getParameter("busqueda");
 		
 		BrowserController browserControl = new BrowserController(busqueda);
-		browserControl.buscarProducto();
+		ResultSet rs = browserControl.buscarProducto();
+		
+		try {
+			while(rs.next()){
+				Array id = rs.getArray("id");
+				
+				System.out.println("ID: "+id.toString());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

@@ -38,7 +38,6 @@ public class DBConnect {
 	Statement statement = null;
 	ResultSet rs;
 	
-	@SuppressWarnings("finally")
 	public Statement connect(){
 	try {
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -68,6 +67,16 @@ public class DBConnect {
 		return statement;
 	}
 	
+	public ResultSet commandSelect(String query){
+		try {
+			rs = statement.executeQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
 	public ResultSet commandSelect(DBQuery object){
 		
 		String select = " SELECT "+object.getColumna()+" FROM "+object.getTabla();
@@ -77,13 +86,27 @@ public class DBConnect {
 		}
 		
 		try {
+			rs = null;
 			rs = statement.executeQuery(select);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			return rs;
-		}	
+		}
+		return rs;
+	}
+
+	
+	public Boolean commandInsert(String query){
+		Boolean queryOk = false;
+		try{
+			statement.execute(query);
+			queryOk = true;
+		}catch(SQLException e){
+			e.printStackTrace();
+			queryOk = false;
+		}
+		
+		return queryOk;
 	}
 	
 	public void commandInsert(DBQuery object,String[]values){
