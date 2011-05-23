@@ -32,7 +32,6 @@ public class BrowserServlet extends HttpServlet {
 		try {
 			while(rs.next()){
 				Array id = rs.getArray("id");
-				
 				System.out.println("ID: "+id.toString());
 			}
 		} catch (SQLException e) {

@@ -2,40 +2,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <title>E-commerce</title>
 </head>
 <body>
 
-
-
-
-
-<table border="1" summary="Ejemplo de tabla simple.">
-<tr>
-
-<td>
-
-</td>
-
-<td>
-<form action="http://localhost:8080/buscar" method = "GET">
-<input type="text" name"busqueda"/><input type="button" name"buscar" value="buscar"/>
-</form>
-</td>
-
-<td>
-
-<form action = "Login" method = "POST">
+<div align = "right">	
+<form action = "http://localhost:8080/E-Commerce/login" method = "POST" style="width: 502px; ">
 login:<input type="text" name"login"/>
 password:<input type="password" name"pass"/>
 <input type="button" name"ingresar" value="ingresar"/>
 </form>
+</div>
 
+<div style="height: 84px; " align ="Center">
+<form action="http://localhost:8080/buscar" method = "GET">
+<input type="text" name"busqueda" style="width: 662px; "/><input type="button" name"buscar" value="buscar"/>
+</form>	
+</div>
+	
+<div align = "right">
 <!-- Si colocamos POST, hay que tener en cuenta que el Servlet no puede 
 	pedir un recurso, por ende no se puede hacer /register por ejemplo
  -->
-<form action = "http://localhost:8080/register" method = "GET">
+ Registrarse
+<form action = "http://localhost:8080/E-Commerce/register" method = "POST" style="width: 529px; ">
 <!--
 Nombre: <input type="text" name"firstname"/>
 Apellido:<input type="text" name"lastname"/>
@@ -44,26 +34,35 @@ E-Mail:<input type="text" name"mail"/>
 Password:<input type="password" name "pass"/>
 <input type="button" name"registrar" value="Registrar"/>
 </form>
+</div>
 
-<form action = "sucripcion" method = "POST">
+<div align = "right">
 Suscripcion a ofertas semanales
+<form action = "sucripcion" method = "POST" style="width: 297px; ">
 Mail: <input type="text" name"mail"/>
 <input type="button" name"suscripcion" value="Enviame"/>
 </form>
-</td>
+</div>
 
-<td>
+<div>
 <select name="Categorias" size="30">
 Categorias
 <option>Televisores</option>
 <option>Hardware</option>
 <option>Software</option>
 </select>
+</div>
 
-</td>
+<div align ="Center">
+Publicaciones Destacadas
 
 
-</tr>
+</div>
+
+
+
+
+
 
 
 
