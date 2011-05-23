@@ -27,8 +27,6 @@ public class LoginServlet extends HttpServlet {
 		LoginController loginControl = new LoginController();
 		loginControl.login(mail, pass);
 		
-		
-		
 	}
 	
 	
