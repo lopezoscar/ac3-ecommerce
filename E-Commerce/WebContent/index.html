@@ -10,13 +10,13 @@
 <form action = "http://localhost:8080/E-Commerce/login" method = "POST" style="width: 502px; ">
 login:<input type="text" name"login"/>
 password:<input type="password" name"pass"/>
-<input type="submit" name"ingresar" value="ingresar"/>
+<input type="submit" name = "ingresar" value="ingresar"/>
 </form>
 </div>
 
 <div style="height: 84px; " align ="Center">
 <form action="http://localhost:8080/buscar" method = "GET">
-<input type="text" name"busqueda" style="width: 662px; "/><input type="submit" name"buscar" value="buscar"/>
+<input type="text" name = "busqueda" style="width: 662px; "/><input type="submit" name"buscar" value="buscar"/>
 </form>	
 </div>
 	
@@ -25,22 +25,22 @@ password:<input type="password" name"pass"/>
 	pedir un recurso, por ende no se puede hacer /register por ejemplo
  -->
  Registrarse
-<form action = "http://localhost:8080/E-Commerce/register" method = "POST" style="width: 529px; ">
+<form name = "register" action = "http://localhost:8080/E-Commerce/register" method = "POST" style="width: 529px; ">
 <!--
 Nombre: <input type="text" name"firstname"/>
 Apellido:<input type="text" name"lastname"/>
 -->
-E-Mail:<input type="text" name"mail"/>
-Password:<input type="password" name "pass"/>
-<input type="submit" name"registrar" value="Registrar"/>
+E-Mail:<input type="text" name = "mail"/>
+Password:<input type="password" name = "pass"/>
+<input type="submit" name = "registrar" value="Registrar"/>
 </form>
 </div>
 
 <div align = "right">
 Suscripcion a ofertas semanales
-<form action = "sucripcion" method = "POST" style="width: 297px; ">
-Mail: <input type="text" name"mail"/>
-<input type="button" name"suscripcion" value="Enviame"/>
+<form action = "/E-Commerce/suscripcion" method = "POST" style="width: 297px; ">
+Mail: <input type="text" name = "mail"/>
+<input type="submit" name = "suscripcion" value="Enviame"/>
 </form>
 </div>
 

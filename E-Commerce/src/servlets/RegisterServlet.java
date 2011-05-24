@@ -40,6 +40,8 @@ public class RegisterServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("Entro al get del RegisterServlet");
+		out.println(mail);
+		out.println(pass);
 		
 		/**
 		 * Paso Mail y Pass por el controller para que registre
@@ -54,6 +56,7 @@ public class RegisterServlet extends HttpServlet {
 		RegistroController registroController = new RegistroController(mail,pass);
 		try {
 			Boolean registroOk = registroController.registrar(mail, pass);
+			out.println(registroOk.booleanValue());
 			if(registroOk == true){
 				LoginController login = new LoginController();
 				Boolean loginOk = login.login(mail, pass);

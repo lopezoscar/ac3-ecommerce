@@ -2,6 +2,7 @@ package controller;
 
 import model.users.User;
 import dataBaseAccess.users.LoginDB;
+import exceptions.DBConnectException;
 import exceptions.LoginException;
 
 public class LoginController {
@@ -13,7 +14,13 @@ public class LoginController {
 	
 	public boolean login(String mail, String password){
 		LoginDB loginDB = new LoginDB();
-		LoginVO loginVo = loginDB.getUser();
+		LoginVO loginVo = null;
+		try {
+			loginVo = loginDB.getUser();
+		} catch (DBConnectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if(mail.equals(loginVo.getMail()) && password.equals(loginVo.getPass())){
 			User user = new User();

@@ -2,11 +2,15 @@ package dataBaseAccess.users;
 
 import interfaces.DBQuery;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import controller.LoginVO;
 import dataBaseAccess.DBConnect;
+import exceptions.DBConnectException;
 
 public class LoginDB implements DBQuery {
 	
@@ -21,15 +25,26 @@ public class LoginDB implements DBQuery {
 		
 	}
 	
-	public LoginVO getUser(){
+	public LoginVO getUser() throws DBConnectException{
 	
-		ResultSet rs = DBConnect.getInstance().commandSelect(getUserFromTable());
+		//ResultSet rs = DBConnect.getInstance().commandSelect(getUserFromTable());
+		Connection conexion = DBConnect.getInstance().connect();
+		PreparedStatement preparedStatement = null;
 		LoginVO loginVo = null;
 		try {
-			while(rs.next()){
-				loginVo = new LoginVO();
-				loginVo.setMail(rs.getString(MAIL));
-				loginVo.setPass(rs.getString(PASS));
+			String query = "SELECT * FROM "+this.getTabla();
+			if(conexion!=null){
+				Statement stmt = conexion.createStatement();
+				ResultSet rs = stmt.executeQuery(query);
+				//ResultSet rs = preparedStatement.executeQuery();
+				
+				while(rs.next()){
+					loginVo = new LoginVO();
+					loginVo.setMail(rs.getString(MAIL));
+					loginVo.setPass(rs.getString(PASS));
+				}
+			}else{
+				throw new DBConnectException();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

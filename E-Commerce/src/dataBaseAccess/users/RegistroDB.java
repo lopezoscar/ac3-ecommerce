@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import dataBaseAccess.DBConnect;
+import exceptions.DBConnectException;
+
 
 public class RegistroDB implements DBQuery {
 
@@ -32,7 +34,15 @@ public class RegistroDB implements DBQuery {
 		 * 
 		 */
 		
-		DBConnect.getInstance().commandInsert(getUserFromTable(mail, pass));
+		//DBConnect.getInstance().commandInsert(getUserFromTable(mail, pass));
+		int clavePrimaria = 0;
+		try {
+			clavePrimaria = statementInsert(mail, pass);
+		} catch (DBConnectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(clavePrimaria);
 		Boolean registroOk = true;
 		return registroOk;
 	}
@@ -67,29 +77,38 @@ public class RegistroDB implements DBQuery {
 	}
 
 	
-	public void statementInsert(String mail, String pass){
+	public int statementInsert(String mail, String pass) throws DBConnectException{
 		Connection conexion = DBConnect.getInstance().connect();
 		//INSERT INTO users (id_user,mail,pass) values (1,'lopezoscar.job@gmail.com','36175080');
-		//String query = "INSERT INTO "+this.getTabla()+
+		//String query = "INSERT INTO users (id_user,mail,pass) values (2,"+"'"+mail+"',"+"'"+pass+"'"+")";
 		
+		int pk = 0;
 		try {
-			PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO users values (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
-			preparedStatement.setInt(1, 1);
-			preparedStatement.setString(2, mail);
-			preparedStatement.setString(3, pass);
+//			Statement prueba = conexion.createStatement();
+//			prueba.execute(query);
 			
-			preparedStatement.executeUpdate();
-			
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-			while(rs.next()){
-				System.out.println(rs.getInt(1));
+			if(conexion !=null){
+				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO users(id_user,mail,pass) values (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+				preparedStatement.setInt(1, 2);
+				preparedStatement.setString(2, mail);
+				preparedStatement.setString(3, pass);
+				
+				preparedStatement.executeUpdate();
+				
+				ResultSet rs = preparedStatement.getGeneratedKeys();
+				
+				while(rs.next()){
+					pk = rs.getInt(1);
+					System.out.println(rs.getInt(1));
+				}
+			}else{
+				throw new DBConnectException();
 			}
-			//Statement insert = conexion.createStatement();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return pk;
 		
 	}
 

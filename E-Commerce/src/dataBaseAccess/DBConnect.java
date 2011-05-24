@@ -28,7 +28,7 @@ public class DBConnect {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		connect();
+		//connect();
 	}
 	
 	public static DBConnect getInstance(){
@@ -54,7 +54,7 @@ public class DBConnect {
 	try {
 		
 		connection = DriverManager.getConnection(connectionURL,dsn,pass);
-		statement = connection.createStatement();
+		//statement = connection.createStatement();
 	
 		//statement.execute("INSERT INTO users (nombre, apellido, mail) VALUES ('oscar', 'lopez', 'lopezoscar.job@gmail.com')");
 		//statement.executeQuery("INSERT INTO users (nombre, apellido, mail) VALUES ('oscar', 'lopez', 'lopezoscar.job@gmail.com')");
@@ -100,7 +100,6 @@ public class DBConnect {
 		}
 		return rs;
 	}
-
 	
 	public Boolean commandInsert(String query){
 		Boolean queryOk = false;
