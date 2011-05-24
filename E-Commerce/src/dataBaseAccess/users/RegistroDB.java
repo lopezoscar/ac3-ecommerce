@@ -1,6 +1,13 @@
 package dataBaseAccess.users;
 
 import interfaces.DBQuery;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import dataBaseAccess.DBConnect;
 
 public class RegistroDB implements DBQuery {
@@ -10,7 +17,7 @@ public class RegistroDB implements DBQuery {
 	
 	public static final String PASS = "password";
 
-	public static final String USERS = "users";
+	public static final String USERS = "DBO.users";
 	
 
 
@@ -60,7 +67,31 @@ public class RegistroDB implements DBQuery {
 	}
 
 	
-	
+	public void statementInsert(String mail, String pass){
+		Connection conexion = DBConnect.getInstance().connect();
+		//INSERT INTO users (id_user,mail,pass) values (1,'lopezoscar.job@gmail.com','36175080');
+		//String query = "INSERT INTO "+this.getTabla()+
+		
+		try {
+			PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO users values (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+			preparedStatement.setInt(1, 1);
+			preparedStatement.setString(2, mail);
+			preparedStatement.setString(3, pass);
+			
+			preparedStatement.executeUpdate();
+			
+			ResultSet rs = preparedStatement.getGeneratedKeys();
+			while(rs.next()){
+				System.out.println(rs.getInt(1));
+			}
+			//Statement insert = conexion.createStatement();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 
 }

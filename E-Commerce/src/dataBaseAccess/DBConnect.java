@@ -16,7 +16,19 @@ public class DBConnect {
 	private static DBConnect INSTANCE;
 	
 	private DBConnect(){
-		
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		connect();
 	}
 	
 	public static DBConnect getInstance(){
@@ -38,9 +50,9 @@ public class DBConnect {
 	Statement statement = null;
 	ResultSet rs;
 	
-	public Statement connect(){
+	public Connection connect(){
 	try {
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+		
 		connection = DriverManager.getConnection(connectionURL,dsn,pass);
 		statement = connection.createStatement();
 	
@@ -55,16 +67,10 @@ public class DBConnect {
 //			System.out.println(rs.getString("mail"));
 //		}
 //		rs.close();
-	} catch (InstantiationException insE) {
-		insE.printStackTrace();
-	} catch (IllegalAccessException ilegalE) {
-		ilegalE.printStackTrace();
-	} catch (ClassNotFoundException classNtF) {
-		classNtF.printStackTrace();
-	} catch (SQLException sqlE) {
+	}  catch (SQLException sqlE) {
 		sqlE.printStackTrace();
 	}
-		return statement;
+		return connection;
 	}
 	
 	public ResultSet commandSelect(String query){
