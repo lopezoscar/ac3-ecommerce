@@ -11,12 +11,12 @@ public class SuscripcionController {
 	}
 	
 	
-	private boolean suscripcion(){
-		boolean enLista = false;
+	public boolean suscripcion(){
 		
 		SuscripcionDB suscripcionDB = new SuscripcionDB();
+		boolean suscriptoOk = suscripcionDB.suscripcion(mail);
 		
-		return enLista;
+		return suscriptoOk;
 	}
 	
 

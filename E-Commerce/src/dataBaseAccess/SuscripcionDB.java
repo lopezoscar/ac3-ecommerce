@@ -15,7 +15,8 @@ public class SuscripcionDB implements DBQuery {
 	
 	private static String MAIL = "mail";
 	
-	private void suscripcion(String mail){
+	public boolean suscripcion(String mail){
+		boolean isConnect = false;
 		Connection conexion = DBConnect.getInstance().connect();
 		PreparedStatement commandInsert = null;
 		String query = "INSERT INTO "+this.getTabla()+"("+this.getColumna()+");"; 
@@ -23,13 +24,17 @@ public class SuscripcionDB implements DBQuery {
 			if(conexion !=null){
 				Statement st = conexion.createStatement();
 				st.execute(query);
+				isConnect = true;
 				//commandInsert = conexion.prepareStatement(query);
 			}else{
+				isConnect = false;
 				System.out.println("Conexion Null");
 			}
 		}catch(SQLException e){
-			
+			e.printStackTrace();
 		}
+		
+		return isConnect;
 		
 		
 	}
