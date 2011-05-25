@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,15 @@ public class LoginServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String pass = request.getParameter("pass");
 		
+		PrintWriter pw = response.getWriter();
+		
 		LoginController loginControl = new LoginController();
-		loginControl.login(mail, pass);
+		Boolean loginOk = loginControl.login(mail, pass);
+		if(loginOk == true){
+			pw.println("Login OK");
+		}else{
+			pw.println("Login incorrecto");
+		}
 		
 	}
 	

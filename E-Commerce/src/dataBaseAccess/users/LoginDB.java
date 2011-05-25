@@ -16,7 +16,7 @@ public class LoginDB implements DBQuery {
 	
 	public static final String MAIL = "mail";
 	
-	public static final String PASS = "password";
+	public static final String PASS = "pass";
 	
 	public static final String USERS = "users";
 	
@@ -25,24 +25,38 @@ public class LoginDB implements DBQuery {
 		
 	}
 	
-	public LoginVO getUser() throws DBConnectException{
+	public LoginVO getUser(String mail, String pass) throws DBConnectException{
 	
 		//ResultSet rs = DBConnect.getInstance().commandSelect(getUserFromTable());
 		Connection conexion = DBConnect.getInstance().connect();
 		PreparedStatement preparedStatement = null;
 		LoginVO loginVo = null;
 		try {
-			String query = "SELECT * FROM "+this.getTabla();
+			String query = "SELECT * FROM users WHERE mail = ? AND pass = ?";
+			
 			if(conexion!=null){
-				Statement stmt = conexion.createStatement();
-				ResultSet rs = stmt.executeQuery(query);
-				//ResultSet rs = preparedStatement.executeQuery();
+				preparedStatement = conexion.prepareStatement(query);
+				preparedStatement.setString(1, mail);
+				preparedStatement.setString(2, pass);
+				
+				ResultSet rs = preparedStatement.executeQuery();
 				
 				while(rs.next()){
 					loginVo = new LoginVO();
 					loginVo.setMail(rs.getString(MAIL));
 					loginVo.setPass(rs.getString(PASS));
 				}
+				
+//				
+//				Statement stmt = conexion.createStatement();
+//				ResultSet rs = stmt.executeQuery(query);
+//				ResultSet rs = preparedStatement.executeQuery();
+				
+//				while(rs.next()){
+//					loginVo = new LoginVO();
+//					loginVo.setMail(rs.getString(MAIL));
+//					loginVo.setPass(rs.getString(PASS));
+//				}
 			}else{
 				throw new DBConnectException();
 			}

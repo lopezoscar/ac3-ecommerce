@@ -88,10 +88,9 @@ public class RegistroDB implements DBQuery {
 //			prueba.execute(query);
 			
 			if(conexion !=null){
-				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO users(id_user,mail,pass) values (?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
-				preparedStatement.setInt(1, 2);
-				preparedStatement.setString(2, mail);
-				preparedStatement.setString(3, pass);
+				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO users(mail,pass) values (?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
+				preparedStatement.setString(1, mail);
+				preparedStatement.setString(2, pass);
 				
 				preparedStatement.executeUpdate();
 				

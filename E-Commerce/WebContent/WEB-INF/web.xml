@@ -48,6 +48,11 @@
  		<servlet-name>SuscripcionServlet</servlet-name>
  		<servlet-class>servlets.SuscripcionServlet</servlet-class>
  	</servlet>
+ 	
+ 	<servlet>
+ 		<servlet-name>Publicacion</servlet-name>
+ 		<servlet-class>servlets.PublicacionServlet</servlet-class>
+ 	</servlet>
  
  
 	<servlet-mapping>
@@ -70,6 +75,10 @@
 		<url-pattern>/suscripcion</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>PublicacionServlet</servlet-name>
+		<url-pattern>/publicacion</url-pattern>
+	</servlet-mapping>
  	
 	
 	

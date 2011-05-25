@@ -16,7 +16,7 @@ public class LoginController {
 		LoginDB loginDB = new LoginDB();
 		LoginVO loginVo = null;
 		try {
-			loginVo = loginDB.getUser();
+			loginVo = loginDB.getUser(mail,password);
 		} catch (DBConnectException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

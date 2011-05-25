@@ -19,11 +19,24 @@ public class SuscripcionDB implements DBQuery {
 		boolean isConnect = false;
 		Connection conexion = DBConnect.getInstance().connect();
 		PreparedStatement commandInsert = null;
-		String query = "INSERT INTO "+this.getTabla()+"("+this.getColumna()+");"; 
+		
+		
+		
+//		String query = "INSERT INTO "+this.getTabla()+"("+this.getColumna()+") values ("+"2"+mail+");"; 
+//		String queryTest = "INSERT INTO SUSCRIPCIONES (id_mail,mail)values(1,'lopezoscar.job@gmail.com');";
+		
+		String queryPreparedStatement = "INSERT INTO SUSCRIPCIONES VALUES (?)";
+		
 		try{
 			if(conexion !=null){
-				Statement st = conexion.createStatement();
-				st.execute(query);
+				commandInsert = conexion.prepareStatement(queryPreparedStatement);
+				commandInsert.setString(1, mail);
+				
+				commandInsert.executeUpdate();
+				
+				
+				//Statement st = conexion.createStatement();
+				//st.execute(queryTest);
 				isConnect = true;
 				//commandInsert = conexion.prepareStatement(query);
 			}else{
@@ -33,10 +46,8 @@ public class SuscripcionDB implements DBQuery {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		
+
 		return isConnect;
-		
-		
 	}
 
 	@Override
