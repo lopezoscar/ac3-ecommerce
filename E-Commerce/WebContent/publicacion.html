@@ -7,19 +7,24 @@
 <body>
 
 <form name = "publicacion" action = "E-Commerce/publicacion" method = "GET">
-Titulo: <input type = "text" name = "titulo">
-<br>Nombre Producto: <input type = "text" name = "producto">
-<br>Imagenes: <input type="file"><br>
-Precio $:<input type = "text" name = "precio">
 
-<br>Seleccione Categoria:
-<br>Seleccione Medios de Pago:<br>
+<ul>
 
-<textarea rows="10" cols="12" style="width: 569px; ">Escribe aqui la descripcion del producto</textarea>
+<li><label>Titulo</label> <input type = "text" name = "titulo"></li>
+<li><label>Nombre Producto</label> <input type = "text" name = "producto"></li>
+<li><label> Imagenes </label> <input type="file"></li>
+<li><label>Precio</label><input type = "text" name = "precio"></li>
 
-<br><br><input type = "submit" value = "Publicar" name = "publicar">
+<li><label>Seleccione Categoria:</label></li>
+<li><label>Seleccione Medios de Pago:</label></li>
 
-<input type = "reset" value = "Reset" name = "reset">
+<li><textarea>Escribe aqui la descripcion del producto</textarea></li>
+
+<li><input type = "submit" value = "Publicar" name = "publicar"></li>
+
+<li><input type = "reset" value = "Reset" name = "reset"></li>
+
+</ul>
 
 </form>
 

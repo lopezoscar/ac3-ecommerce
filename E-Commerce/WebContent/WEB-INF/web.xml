@@ -50,7 +50,7 @@
  	</servlet>
  	
  	<servlet>
- 		<servlet-name>Publicacion</servlet-name>
+ 		<servlet-name>PublicacionServlet</servlet-name>
  		<servlet-class>servlets.PublicacionServlet</servlet-class>
  	</servlet>
  
@@ -72,12 +72,12 @@
 	
 	<servlet-mapping>
 		<servlet-name>SuscripcionServlet</servlet-name>
-		<url-pattern>/suscripcion</url-pattern>
+		<url-pattern>/suscripcionServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>PublicacionServlet</servlet-name>
-		<url-pattern>/publicacion</url-pattern>
+		<url-pattern>/publication</url-pattern>
 	</servlet-mapping>
  	
 	
