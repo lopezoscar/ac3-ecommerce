@@ -32,7 +32,7 @@ public class LoginDB implements DBQuery {
 		PreparedStatement preparedStatement = null;
 		LoginVO loginVo = null;
 		try {
-			String query = "SELECT * FROM users WHERE mail = ? AND pass = ?";
+			String query = "SELECT mail, pass FROM users WHERE mail = ? AND pass = ?";
 			
 			if(conexion!=null){
 				preparedStatement = conexion.prepareStatement(query);

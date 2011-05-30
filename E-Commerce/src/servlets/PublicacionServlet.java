@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.PublicacionController;
+
 public class PublicacionServlet extends HttpServlet {
 	
 	
@@ -20,6 +22,34 @@ public class PublicacionServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		
+		String titulo = request.getParameter("titulo");
+		String producto = request.getParameter("producto");
+		String imagen = request.getParameter("imagen");
+		String precio = request.getParameter("precio");
+		String categoria = request.getParameter("categoria");
+		String medioPago = request.getParameter("medioPago");
+		String descripcion = request.getParameter("descripcion");
+		
+		System.out.println();
+		
+		
+		PublicacionController publicacionController = new PublicacionController();
+		publicacionController.getPublicacion().setTitulo(titulo);
+		publicacionController.getPublicacion().setNombreProducto(producto);
+		publicacionController.getPublicacion().setImagen(imagen);
+		publicacionController.getPublicacion().setPrecio(precio);
+		publicacionController.getPublicacion().setCategoria(categoria);
+		publicacionController.getPublicacion().setMedioDePago(medioPago);
+		publicacionController.getPublicacion().setDescripcion(descripcion);
+		
+		publicacionController.publicar();
+		
+		
+		
+		
+		
+		
 		
 		
 		

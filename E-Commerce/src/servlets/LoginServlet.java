@@ -22,10 +22,11 @@ public class LoginServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		
-		String mail = request.getParameter("mail");
+		String mail = request.getParameter("login");
 		String pass = request.getParameter("pass");
 		
 		PrintWriter pw = response.getWriter();
+		pw.println(mail+" "+pass);
 		
 		LoginController loginControl = new LoginController();
 		Boolean loginOk = loginControl.login(mail, pass);

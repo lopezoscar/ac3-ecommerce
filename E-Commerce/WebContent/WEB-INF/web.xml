@@ -49,11 +49,12 @@
  		<servlet-class>servlets.SuscripcionServlet</servlet-class>
  	</servlet>
  	
+ 	
  	<servlet>
  		<servlet-name>PublicacionServlet</servlet-name>
  		<servlet-class>servlets.PublicacionServlet</servlet-class>
  	</servlet>
- 
+  
  
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
@@ -75,12 +76,13 @@
 		<url-pattern>/suscripcionServlet</url-pattern>
 	</servlet-mapping>
 
+ 
 	<servlet-mapping>
 		<servlet-name>PublicacionServlet</servlet-name>
 		<url-pattern>/publication</url-pattern>
 	</servlet-mapping>
  	
-	
+ 
 	
 </web-app>
 

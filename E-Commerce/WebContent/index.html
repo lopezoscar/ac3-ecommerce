@@ -3,58 +3,147 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>E-commerce</title>
+
+<link rel = "stylesheet"  type = "text/css" href = "http://localhost:8080/E-Commerce/global.css" />
+ 
+
 </head>
-<body>
+<body id = "home">
 
-<div align = "right">	
-<form action = "E-Commerce/login" method = "POST" style="width: 502px; ">
-login:<input type="text" name = "login"/>
-password:<input type="password" name = "pass"/>
-<input type="submit" name = "ingresar" value="ingresar"/>
-</form>
-</div>
+<!-- Bloque Encabezado -->
+<div id = "encabezado" class = "limpiar">
 
-<div style="height: 84px; " align ="Center">
-<form action="E-Commerce/buscar" method = "GET">
-<input type="text" name = "busqueda" style="width: 662px; "/><input type="submit" name = "buscar" value="buscar"/>
+
+
+<div id = "busqueda">
+<form action="browser" method = "GET">
+<fieldset id = "browser">
+<ul>
+<li><input type="text" name = "busqueda" />
+<input type="submit" name = "buscar" value="buscar"/> <a href = "publicacion.html">Vender</a></li>
+
+</ul>
+</fieldset>
 </form>	
 </div>
+
+<!-- Bloque Vender -->
+<div id = "vender">
 	
-<div align = "right">
-<!-- Si colocamos POST, hay que tener en cuenta que el Servlet no puede 
-	pedir un recurso, por ende no se puede hacer /register por ejemplo
+</div>
+
+
+
+
+<!-- Fin Blogue Encabezado -->
+</div>
+
+<div id = "lateralDerecho" class = "limpiar">
+
+<!-- Bloque Login -->
+<div id = "loginDiv">	
+<form action = "login" method = "POST" >
+<fieldset id = "login">
+<legend>Login</legend>
+<ul>
+<li>
+	<label>login:</label>
+	<input type="text" name = "login"/></li>
+<li>
+	<label>password:</label>
+	<input type="password" name = "pass"/></li>
+<li>
+	<input type="submit" name = "ingresar" value="ingresar"/></li>
+</ul>
+
+</fieldset>
+</form>
+</div>
+
+
+
+	
+<div id = "registroDiv">
+<!-- Si colocamos POST, hay que tener en cuenta que el navegador no puede 
+	pedir un recurso, por ende no se puede hacer /register
  -->
- Registrarse
-<form name = "register" action = "E-Commerce/register" method = "POST" style="width: 529px; ">
-<!--
-Nombre: <input type="text" name"firstname"/>
-Apellido:<input type="text" name"lastname"/>
--->
-E-Mail:<input type="text" name = "mail"/>
-Password:<input type="password" name = "pass"/>
-<input type="submit" name = "registrar" value="Registrar"/>
+ 
+<form name = "register" action = "register" method = "POST" >
+
+<fieldset id = "registro">
+
+<legend>Registrarse</legend>
+<ul>
+<li>
+	<label>E-Mail:</label>
+	<input type="text" name = "mail"/>
+</li>
+<li>
+<label>Password:</label>
+	<input type="password" name = "pass"/>
+</li>
+<li>
+	<input type="submit" name = "registrar" value="Registrar"/>
+</li>
+
+</ul>
+</fieldset>
+
 </form>
 </div>
 
-<div align = "right">
-Suscripcion a ofertas semanales
-<form action = "E-Commerce/suscripcion" method = "POST" style="width: 297px; ">
-Mail: <input type="text" name = "mail"/>
-<input type="submit" name = "suscripcion" value="Enviame"/>
+<div id = "suscripciones">
+<form action = "suscripcion" method = "POST">
+<fieldset>
+<legend>Suscripcion a ofertas semanales</legend>
+<ul>
+<li>
+	<label>Mail:</label> <input type="text" name = "mail"/>
+</li>
+<li>
+	<input type="submit" name = "suscripcion" value="Enviame"/>
+</li>
+
+</ul>
+</fieldset>
 </form>
 </div>
 
-<div>
+<!-- Fin Bloque Lateral Derecho -->
+</div>
+
+
+
+
+<div id = "lateralIzquierdo" class = "limpiar">
+
+
+
+
+
+<div id = "categoria">
 <select name="Categorias" size="30">
 Categorias
 <option>Televisores</option>
 <option>Hardware</option>
 <option>Software</option>
+
 </select>
 </div>
 
-<div align ="Center">
-Publicaciones Destacadas
+<!-- Fin Bloque Lateral Izquierdo -->
+
+<div = id = "contenido" class = "limpiar">
+
+
+<div id = "destacados">
+<h1>Publicaciones Destacadas</h1>
+
+
+</div>
+
+</div>
+
 </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,13 +26,15 @@ public class BrowserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String busqueda = request.getParameter("busqueda");
+		PrintWriter pw = response.getWriter();
+		pw.println(busqueda);
 		
 		BrowserController browserControl = new BrowserController(busqueda);
 		ResultSet rs = browserControl.buscarProducto();
 		
 		try {
 			while(rs.next()){
-				Array id = rs.getArray("id");
+				Array id = rs.getArray("categoria");
 				System.out.println("ID: "+id.toString());
 			}
 		} catch (SQLException e) {

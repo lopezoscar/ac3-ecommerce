@@ -1,0 +1,227 @@
+@CHARSET "ISO-8859-1";
+
+@import url("reset.css");
+
+
+
+body#home{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size:11px;
+	line-height:16px;
+	margin:0;
+	padding:0;
+	
+	
+	
+}
+/*
+div#encabezado{
+	background: white;
+	color:#fff;
+	height:200px;
+	margin:0;
+	position:relative;
+	
+}
+
+
+*/
+
+div#login{
+	margin-top:10px;
+	width:100px;
+	float:right;
+}
+div#encabezado ul{
+	position:float;
+	margin:15px 0 0 25px;
+	
+}
+
+div#encabezado li{
+	
+	
+}
+
+div#encabezado li+li{
+	
+}
+
+div#lateralIzquierdo{
+	width:150px;
+	
+	
+}
+
+div#contenido{
+	width:700px;
+	margin:0 auto 0 auto;
+	
+}
+
+div#lateralDerecho{
+	width:150px;
+	float:right
+}
+
+
+form{
+	background: #fafafa;
+	padding:15px 40px;
+	margin: auto;
+}
+
+legend{
+	font-size: 14px;
+	color:#444720;
+	padding:4px 0;
+}
+
+legend+ul{
+	border-top: 1px solid #f0f0f0;
+	padding-top: 15px;
+	display:block;
+	width: 375px;
+	
+}
+
+form ul li{
+	height:30px;
+	padding-bottom:5px;
+}
+
+form ul li.textarea{
+	height:80px
+}
+
+label{
+	width:100px;
+	display:block;
+	float:left;
+	font-weight: bold;
+	margin-right: 25px;
+	color:#444720;
+	
+	
+}
+
+
+form#login{
+	float:left;
+}
+
+form#login label{
+	width:300px;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-left:50px;
+	coloar:#444720;
+}
+
+fieldset#login{
+	margin-top: 10px;
+}
+
+form#login ul li{
+	height:30px;
+}
+
+
+
+form#registro ul li{
+	height:30px;
+}
+
+fieldset#registro{
+	height:250px;
+}
+
+form#registro label{
+	width:300px;
+	display:block;
+	/*float:left;*/
+	font-weight:bold;
+	margin-left:50px;
+	coloar:#444720;
+}
+
+form#registro ul li{
+	height:30px;
+}
+
+input, textarea{
+	background:url();
+	border-top:1px solid #acbd5a;
+	border-left:1px solid #acbd5a;
+	border-right:1px solid #6c7f3d;
+	border-botton:1px solid #6c7f3d;
+	width:220px;
+	color:#6b6b6;
+	padding:2px 2px 2px 4px;
+	margin-button:25px;
+	 
+}
+
+input:focus, textarea:focus{
+	background:url()#acbd5a 6px 9px; 
+	border: 1px solid #acbd5a;
+	color:#fff;
+}
+
+input#submit{
+	width:115px;
+	height:25px;
+	background:url();
+	padding:10px 0px 3px 4px;
+	color:#fff;
+	text-align: left;
+	margin-left: 237px;
+	border:none;
+	
+}
+
+input#reset{
+	width:115px;
+	height:25px;
+	background:url();
+	padding:10px 0px 3px 4px;
+	color:#fff;
+	text-align: left;
+	margin-left: 237px;
+	border:none;
+}
+
+input#submit:focus{
+	background: url();
+}
+
+div#encabezado#busqueda input{
+	
+}
+
+div#browser{
+	heigth:600px;
+	width:300px;
+	position:relative;
+}
+
+div#vender{
+	position:float;
+	
+}
+
+a {
+	margin-left:400px;
+}
+
+div#navegacionPerfil{
+	float:left;
+}
+
+div#contenidoPerfil{
+	float:right;
+}
+
+
+

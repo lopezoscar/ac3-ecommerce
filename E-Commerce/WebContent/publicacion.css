@@ -1,0 +1,92 @@
+@CHARSET "ISO-8859-1";
+
+@import url("reset.css");
+
+
+
+body#home{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size:11px;
+	line-height:16px;
+	margin:0;
+	padding:0;
+	
+	
+}
+
+form{
+	background: #fafafa;
+	padding:15px 40px;
+}
+
+legend{
+	font-size: 14px;
+	color:#444720;
+	padding:4px 0;
+}
+
+legend+ul{
+	border-top: 1px solid #f0f0f0;
+	padding-top: 15px;
+	display:block;
+	width: 375px;
+	
+}
+
+ul li{
+	height:30px;
+}
+
+ul li.textarea{
+	height:80px
+}
+
+label{
+	width:100px;
+	display:block;
+	float:left;
+	font-weight: bold;
+	margin-right: 15px;
+	color:#444720;
+	
+	
+}
+
+input, textarea{
+	background:url();
+	border-top:1px solid #acbd5a;
+	border-left:1px solid #acbd5a;
+	border-right:1px solid #6c7f3d;
+	border-botton:1px solid #6c7f3d;
+	width:220px;
+	color:#6b6b6;
+	padding:2px 2px 2px 4px;
+	margin-button:25px;
+	 
+}
+
+input:focus, textarea:focus{
+	background:url()#acbd5a 6px 9px; 
+	border: 1px solid #acbd5a;
+	color:#fff;
+}
+
+input#submit{
+	width:115px;
+	height:25px;
+	background:url();
+	padding:10px 0px 3px 4px;
+	color:#fff;
+	text-align: left;
+	margin-left: 237px;
+	border:none;
+	
+}
+
+input#submit:focus{
+	background: url();
+}
+
+a {
+	margin-left:30px;
+}

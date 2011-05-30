@@ -3,29 +3,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Publicacion</title>
+
+<link rel = "stylesheet"  type = "text/css" href = global.css />
+
 </head>
 <body>
 
-<form name = "publicacion" action = "E-Commerce/publicacion" method = "GET">
+<form name = "publicacion" action = "publication" method = "GET">
 
+<fieldset id= "publicacion">
 <ul>
 
 <li><label>Titulo</label> <input type = "text" name = "titulo"></li>
 <li><label>Nombre Producto</label> <input type = "text" name = "producto"></li>
-<li><label> Imagenes </label> <input type="file"></li>
+<li><label>Imagenes </label> <input type="file" name = "imagen"></li>
 <li><label>Precio</label><input type = "text" name = "precio"></li>
 
-<li><label>Seleccione Categoria:</label></li>
-<li><label>Seleccione Medios de Pago:</label></li>
 
-<li><textarea>Escribe aqui la descripcion del producto</textarea></li>
+<li>
+<label>Seleccione Categoria:</label>
+<input type = "text" name = "categoria">
+</li>
+<li>
+<label>Seleccione Medios de Pago:</label>
+<input type = "text" name = "medioPago">
+</li>
+
+<li><textarea name ="descripcion">Escribe aqui la descripcion del producto</textarea></li>
 
 <li><input type = "submit" value = "Publicar" name = "publicar"></li>
 
 <li><input type = "reset" value = "Reset" name = "reset"></li>
 
-</ul>
 
+</ul>
+</fieldset>
 </form>
 
 

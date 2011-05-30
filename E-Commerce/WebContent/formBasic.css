@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+@import url("reset.css");
+
+form {
+    border:1px solid #990000;
+    width:450px;
+    margin:auto;
+}
+form legend{
+    font-weight:bold;
+    font-size:12px;
+}
+form ul{
+    list-style:none;
+}
+form ul li{
+    padding-bottom:5px;
+}
+form ul li label{
+    width:120px;
+    float:left;
+    text-align:left;
+}
+form input[type=text] {
+    border:1px solid #CCCCCC;
+}
+imput#submit{
+	padding:3px;
+    color:#FFFFFF;
+    background-color:#990000;
+    border:1px solid #000000;
+}

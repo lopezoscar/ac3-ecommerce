@@ -2,7 +2,10 @@ package dataBaseAccess;
 
 import interfaces.DBQuery;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class BrowserDB implements DBQuery {
 	
@@ -12,9 +15,26 @@ public class BrowserDB implements DBQuery {
 	
 	
 	public ResultSet buscar(String busqueda){
-		ResultSet result = DBConnect.getInstance().commandSelect(this);
-		//String fin = "busqueda exitosa";
-		return result;
+		ResultSet rs = null;
+		Connection conexion = DBConnect.getInstance().connect();
+		
+		String query = "SELECT * FROM publicaciones WHERE categoria = ?";
+		try {
+			PreparedStatement preparedStatement = conexion.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, busqueda);
+			rs = preparedStatement.executeQuery();
+			
+			while(rs.next()){
+				System.out.println(rs.getString(1));
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+		
 	}
 	
 
