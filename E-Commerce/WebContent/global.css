@@ -14,17 +14,19 @@ body#home{
 	
 	
 }
-/*
+
 div#encabezado{
 	background: white;
 	color:#fff;
-	height:200px;
-	margin:0;
-	position:relative;
+	width:50%;
+	margin:auto;
+	/*position:relative;
 	
+*/
+		
 }
 
-
+/*
 */
 
 div#login{
@@ -60,9 +62,11 @@ div#contenido{
 }
 
 div#lateralDerecho{
-	width:150px;
-	float:right
+	width:100px;
+	float:right;
 }
+/*
+*/
 
 
 form{
@@ -221,6 +225,11 @@ div#navegacionPerfil{
 
 div#contenidoPerfil{
 	float:right;
+}
+
+div#contenido{
+	float:right;
+	width:30px;
 }
 
 

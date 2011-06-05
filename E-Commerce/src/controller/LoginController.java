@@ -12,7 +12,7 @@ public class LoginController {
 		
 	}
 	
-	public boolean login(String mail, String password){
+	public int login(String mail, String password){
 		LoginDB loginDB = new LoginDB();
 		LoginVO loginVo = null;
 		try {
@@ -21,17 +21,21 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+			boolean loginOk = false;
 		if(mail.equals(loginVo.getMail()) && password.equals(loginVo.getPass())){
+			
 			User user = new User();
 			user.setMail(loginVo.getMail());
 			user.setPassword(loginVo.getPass());
-			return true;
+			loginOk = true;
 		}else{
 			new LoginException();
-			return false;
+			loginOk =  false;
 			
 		}
+		
+		return loginVo.getPkLogin();
+		
 	}
 
 }

@@ -18,6 +18,8 @@ public class LoginDB implements DBQuery {
 	
 	public static final String PASS = "pass";
 	
+	public static final String ID = "id_user";
+	
 	public static final String USERS = "users";
 	
 	
@@ -32,7 +34,7 @@ public class LoginDB implements DBQuery {
 		PreparedStatement preparedStatement = null;
 		LoginVO loginVo = null;
 		try {
-			String query = "SELECT mail, pass FROM users WHERE mail = ? AND pass = ?";
+			String query = "SELECT id_user,mail, pass FROM users WHERE mail = ? AND pass = ?";
 			
 			if(conexion!=null){
 				preparedStatement = conexion.prepareStatement(query);
@@ -43,6 +45,7 @@ public class LoginDB implements DBQuery {
 				
 				while(rs.next()){
 					loginVo = new LoginVO();
+					loginVo.setPkLogin(rs.getInt(ID));
 					loginVo.setMail(rs.getString(MAIL));
 					loginVo.setPass(rs.getString(PASS));
 				}

@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.LoginController;
 import controller.RegistroController;
@@ -58,9 +59,15 @@ public class RegisterServlet extends HttpServlet {
 			Boolean registroOk = registroController.registrar(mail, pass);
 			out.println(registroOk.booleanValue());
 			if(registroOk == true){
+				
+				HttpSession session = request.getSession(false);
+				
 				LoginController login = new LoginController();
-				Boolean loginOk = login.login(mail, pass);
-				if(loginOk == true){
+				int idUser = login.login(mail, pass);
+				if( idUser>0){
+					session = request.getSession(true);
+					session.setAttribute("id_user", idUser);
+					out.println(idUser);
 					out.println("Login ok");
 				}
 			}else{
