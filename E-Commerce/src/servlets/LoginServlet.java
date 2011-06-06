@@ -33,14 +33,18 @@ public class LoginServlet extends HttpServlet {
 		
 		LoginController loginControl = new LoginController();
 		
+		int idUser;
 		if(session == null){
 			
-			int idUser = loginControl.login(mail, pass);
+			idUser = loginControl.login(mail, pass);
 			if(idUser>0){
 				session = request.getSession(true);
-				session.setAttribute("id_user", idUser);	
-			}else{
+				session.setAttribute("id_user", idUser);
+				pw.println(idUser);
 				
+			}else{
+				String user = request.getParameter("id_user");
+				pw.println(user);
 			}
 		}
 
