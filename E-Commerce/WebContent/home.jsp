@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>E-commerce</title>
 
 <link rel = "stylesheet"  type = "text/css" href = "http://localhost:8080/E-Commerce/global.css" />
- 
-
+<title>ECommerce</title>
 </head>
 <body id = "home">
+
 
 <!-- Bloque Encabezado -->
 <div id = "encabezado" class = "limpiar">
@@ -20,7 +21,10 @@
 <fieldset id = "browser">
 <ul>
 <li><input type="text" name = "busqueda" />
-<input type="submit" name = "buscar" value="buscar"/> <a href = "publicacion.html">Vender</a></li>
+<input type="submit" name = "buscar" value="buscar"/> 
+
+
+<a href = "publicacion.html">Vender</a></li>
 
 </ul>
 </fieldset>
@@ -40,6 +44,13 @@
 
 <div id = "lateralDerecho" class = "limpiar">
 
+
+
+<%
+
+session = request.getSession();
+%>
+<%if(session==null){%>
 <!-- Bloque Login -->
 <div id = "loginDiv">	
 <form action = "login" method = "POST" >
@@ -59,6 +70,18 @@
 </fieldset>
 </form>
 </div>
+	
+ <%}
+else{%>
+<div id = "loginDiv2">
+<ul>
+	<li><a href = <%session.getAttribute("id_user");%>>Usuario</a></li>
+	</ul>
+</div>
+<%}%>
+
+
+
 
 
 
@@ -139,6 +162,8 @@ Categorias
 <div id = "destacados">
 <h1>Publicaciones Destacadas</h1>
 
+
+
 </div>
 
 </div>
@@ -146,4 +171,3 @@ Categorias
 </div>
 </body>
 </html>
-

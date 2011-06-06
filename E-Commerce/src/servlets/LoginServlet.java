@@ -23,10 +23,6 @@ public class LoginServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 
-		
-
-
-
 		String mail = request.getParameter("login");
 		String pass = request.getParameter("pass");
 
