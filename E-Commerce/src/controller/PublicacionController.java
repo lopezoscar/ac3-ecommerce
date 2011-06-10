@@ -16,10 +16,10 @@ public class PublicacionController {
 	}
 	
 	
-	public void publicar(){
+	public Publicacion publicar(){
 		PublicacionDB publicacionDB = new PublicacionDB();
 		publicacionDB.publicar(publicacion);
-		
+		return publicacion;
 		
 		
 	}

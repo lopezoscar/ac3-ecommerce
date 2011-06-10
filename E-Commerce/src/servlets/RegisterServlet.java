@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,10 +40,10 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		response.setContentType("text/html");
 		
-		PrintWriter out = response.getWriter();
-		out.println("Entro al get del RegisterServlet");
-		out.println(mail);
-		out.println(pass);
+//		PrintWriter out = response.getWriter();
+//		out.println("Entro al get del RegisterServlet");
+//		out.println(mail);
+//		out.println(pass);
 		
 		/**
 		 * Paso Mail y Pass por el controller para que registre
@@ -57,7 +58,7 @@ public class RegisterServlet extends HttpServlet {
 		RegistroController registroController = new RegistroController(mail,pass);
 		try {
 			Boolean registroOk = registroController.registrar(mail, pass);
-			out.println(registroOk.booleanValue());
+//			out.println(registroOk.booleanValue());
 			if(registroOk == true){
 				
 				HttpSession session = request.getSession(false);
@@ -67,14 +68,15 @@ public class RegisterServlet extends HttpServlet {
 				if( idUser>0){
 					session = request.getSession(true);
 					session.setAttribute("id_user", idUser);
-					out.println(idUser);
-					out.println("Login ok");
+					//out.println(idUser);
+					//out.println("Login ok");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("LoginOk.jsp");
+					dispatcher.forward(request, response);
 				}
 			}else{
-				out.println("Login Incorrect");
+//				out.println("Login Incorrect");
 				throw new RegisterExcetption();
 			}
-			
 		} catch (MailNotFoundException e) {
 			e.printStackTrace();
 		} catch (PassNotFoundException e) {
@@ -82,10 +84,7 @@ public class RegisterServlet extends HttpServlet {
 		} catch (RegisterExcetption e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
-		
+		}	
 	}
 
 }

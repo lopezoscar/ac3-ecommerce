@@ -2,11 +2,14 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.publicacion.Publicacion;
 import controller.PublicacionController;
 
 public class PublicacionServlet extends HttpServlet {
@@ -32,7 +35,7 @@ public class PublicacionServlet extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		
 		System.out.println();
-		
+		HttpSession session = request.getSession(true);
 		
 		PublicacionController publicacionController = new PublicacionController();
 		publicacionController.getPublicacion().setTitulo(titulo);
@@ -43,7 +46,16 @@ public class PublicacionServlet extends HttpServlet {
 		publicacionController.getPublicacion().setMedioDePago(medioPago);
 		publicacionController.getPublicacion().setDescripcion(descripcion);
 		
-		publicacionController.publicar();
+		Publicacion publicacion = publicacionController.publicar();
+
+		System.out.println(publicacion.getTitulo());
+		System.out.println(publicacion.getNombreProducto());
+		
+		if(publicacion!=null){
+				session.setAttribute("publicacion", publicacion);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("publicacionFinal.jsp");
+				dispatcher.forward(request, response);
+		}
 		
 		
 		

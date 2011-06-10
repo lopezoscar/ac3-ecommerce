@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+<link rel = "stylesheet"  type = "text/css" href = "http://localhost:8080/E-Commerce/global.css" />
 
 <link rel = "stylesheet"  type = "text/css" href = global.css />
 <title>Publicacion</title>
@@ -12,12 +13,16 @@
 <body>
 
 
-<%if(session!=null){ %>
+<%
+Integer i = (Integer)session.getAttribute("id_user");
+if(i!=null){%>
+
+
 <form name = "publicacion" action = "publication" method = "GET">
 
 <fieldset id= "publicacion">
 <ul>
-
+<li><label>UserId:<%= i %></label>
 <li><label>Titulo</label> <input type = "text" name = "titulo"></li>
 <li><label>Nombre Producto</label> <input type = "text" name = "producto"></li>
 <li><label>Imagenes </label> <input type="file" name = "imagen"></li>
@@ -64,6 +69,7 @@
 </fieldset>
 </form>
 </div>
+		
 	
 <%}%>
 	

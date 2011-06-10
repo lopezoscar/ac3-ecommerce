@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>E-commerce</title>
-
-<link rel = "stylesheet"  type = "text/css" href = "http://localhost:8080/E-Commerce/global.css" />
+<link rel = "stylesheet"  type = "text/css" href = "global.css" />
  
-
+<title>Login Success</title>
 </head>
-<body id = "home">
+<body>
+
 
 <!-- Bloque Encabezado -->
 <div id = "encabezado" class = "limpiar">
@@ -41,23 +42,15 @@
 <div id = "lateralDerecho" class = "limpiar">
 
 <!-- Bloque Login -->
-<div id = "loginDiv">	
-<form action = "login" method = "POST" >
-<fieldset id = "login">
-<legend>Login</legend>
-<ul>
-<li>
-	<label>login:</label>
-	<input type="text" name = "login"/></li>
-<li>
-	<label>password:</label>
-	<input type="password" name = "pass"/></li>
-<li>
-	<input type="submit" name = "ingresar" value="ingresar"/></li>
-</ul>
+<div id = "loginDiv">
+Login Correcto
 
-</fieldset>
-</form>
+<%
+Object user = session.getAttribute("id_user");
+Integer idUser = (Integer)user;
+
+%>
+Bienvenido su id de usuario es: <%= user%>
 </div>
 
 
@@ -93,7 +86,7 @@
 </div>
 
 <div id = "suscripciones">
-<form action = "suscripcion" method = "POST">
+<form action = "suscripcionServlet" method = "POST">
 <fieldset>
 <legend>Suscripcion a ofertas semanales</legend>
 <ul>
@@ -144,6 +137,6 @@ Categorias
 </div>
 
 </div>
+
 </body>
 </html>
-

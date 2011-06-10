@@ -1,8 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,14 +19,14 @@ public class SuscripcionServlet extends HttpServlet{
 		
 		String mail = request.getParameter("mail");
 		
+		
 		SuscripcionController suscripcionController = new SuscripcionController(mail);
 		suscripcionController.suscripcion();
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("SuscripcionOk.html");
+		dispatcher.forward(request, response);
 		
-		PrintWriter out = response.getWriter();
-		
-		out.println(mail);
-		
+		//response.sendRedirect("SuscripcionOk.html");
 		
 		
 		
